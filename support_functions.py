@@ -2,8 +2,8 @@ import global_vars as gv
 import time
 
 
-# Checks if the RA and declination of a star is within the given FOV frame.
 def check_ra_dec(star, fov_h, fov_v, input_ra, input_dec) -> bool:
+    """Checks if the RA and declination of a star is within the given FOV frame."""
     if (input_ra - fov_h / 2 < star[gv.OUTPUT_RA_IND] < input_ra + fov_h / 2
             and input_dec - fov_v / 2 < star[gv.OUTPUT_DEC_IND] < input_dec + fov_v / 2):
         return True
@@ -19,8 +19,8 @@ def sort_descending(f_list, index) -> list:
     return f_list
 
 
-# Creates csv file and puts the given list into it.
 def output(n_stars_list):
+    """Creates csv file and puts the given list into it."""
     ct = time.strftime('%Y-%m-%d %H.%M.%S')
     with open(f"{ct}.csv", "w") as f:
         f.write("star_id, ra, dec, mag, dist \n")

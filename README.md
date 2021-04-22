@@ -21,7 +21,7 @@ The main running method is located in the "main.py" module that needs to be run.
 After running it, the input function asks you to enter the above-mentioned parameters. After providing correct information, the program creates the output file with the current date and time (.csv) in the same directorey.
 
 #### Limitations of the program
-1. Provided link:\
+1. Provided link:
 	- The data file should be in .tsv format.\
 	- The file should have exact form regarding the attributes/columns and their index:\
     . right ascension index: 0\
@@ -30,10 +30,10 @@ After running it, the input function asks you to enter the above-mentioned param
 	. mean magnitude index: 22\
 	These are set in the "global_vars.py" module and can be adjusted according to the provided data file.
 
-2. Inputted data:\
+2. Inputted data:
 	- Inputted right ascension should be in degrees.\
 	- All inputs (except the file path) should be numbers.
 
-3. N number of start (N>0).\
+3. N number of start (N>0).
 	- If N is greater than the available number of stars, the output file will contain the available amount of stars.\
 	- If there are no stars available, the program gives a warning message and does not create an output file.

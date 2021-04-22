@@ -1,4 +1,4 @@
-# Fixed indexes of needed columns in the file.
+# Fixed indexes of needed columns in the given data file.
 FILE_RA_IND = 0
 FILE_DEC_IND = 1
 FILE_ID_IND = 7

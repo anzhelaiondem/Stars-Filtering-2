@@ -3,15 +3,15 @@ import time
 
 
 # Checks if the RA and declination of a star is within the given FOV frame.
-def check_ra_dec(item, fov_h, fov_v, input_ra, input_dec):
-    if (input_ra - fov_h / 2 < item[gv.OUTPUT_RA_IND] < input_ra + fov_h / 2
-            and input_dec - fov_v / 2 < item[gv.OUTPUT_DEC_IND] < input_dec + fov_v / 2):
+def check_ra_dec(star, fov_h, fov_v, input_ra, input_dec) -> bool:
+    if (input_ra - fov_h / 2 < star[gv.OUTPUT_RA_IND] < input_ra + fov_h / 2
+            and input_dec - fov_v / 2 < star[gv.OUTPUT_DEC_IND] < input_dec + fov_v / 2):
         return True
     else:
         return False
 
 
-def sort_descending(f_list, index):
+def sort_descending(f_list, index) -> list:
     for i in range(0, len(f_list)):
         for j in range(0, len(f_list) - 1):
             if f_list[j][index] > f_list[j + 1][index]:
@@ -19,16 +19,7 @@ def sort_descending(f_list, index):
     return f_list
 
 
-def select_n_stars(filtered_sorted_list, n):
-    if len(filtered_sorted_list) != 0:
-        if n <= len(filtered_sorted_list):
-            return filtered_sorted_list[:n]
-        elif n > len(filtered_sorted_list):
-            return filtered_sorted_list
-    else:
-        return []
-
-
+# Creates csv file and puts the given list into it.
 def output(n_stars_list):
     ct = time.strftime('%Y-%m-%d %H.%M.%S')
     with open(f"{ct}.csv", "w") as f:

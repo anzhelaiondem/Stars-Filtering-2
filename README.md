@@ -37,3 +37,4 @@ After running it, the input function asks you to enter the above-mentioned param
 3. N number of start (N>0).
 	- If N is greater than the available number of stars, the output file will contain the available amount of stars.
 	- If there are no stars available, the program gives a warning message and does not create an output file.
+

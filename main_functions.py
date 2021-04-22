@@ -2,8 +2,8 @@ import support_functions as sf
 import global_vars as gv
 
 
-# Extracts from the given file needed columns (id, ra, dec, mag).
 def stars_id_ra_dec_mag_list(file_path) -> list:
+    """Extracts from the given file needed columns (id, ra, dec, mag)."""
     id_ra_dec_mag_list = []
     with open(f"{file_path}", "r") as f:
         for row in f:
@@ -19,8 +19,9 @@ def stars_id_ra_dec_mag_list(file_path) -> list:
     return id_ra_dec_mag_list
 
 
-# Filters the given file based on the inputted parameters(ra, dec, fov_h and fov_v) and sorts with brightness.
 def filtered_sorted_final_stars(id_ra_dec_mag_list, fov_h, fov_v, input_ra, input_dec) -> list:
+    """Filters the given file based on the inputted parameters(ra, dec, fov_h and fov_v)
+        and sorts with brightness."""
     filtered_sorted_list = []
     for item in id_ra_dec_mag_list:
         if sf.check_ra_dec(item, fov_h, fov_v, input_ra, input_dec):
@@ -31,8 +32,8 @@ def filtered_sorted_final_stars(id_ra_dec_mag_list, fov_h, fov_v, input_ra, inpu
     return filtered_sorted_list
 
 
-# Checks and provides the output file based on the given N.
 def final_n_stars_output(filtered_sorted_list, n):
+    """Checks and provides the output file based on the given N."""
     if len(filtered_sorted_list) == 0 or n <= 0:
         print("There are no stars with the mentioned parameters.")
     if len(filtered_sorted_list) > n > 0:
